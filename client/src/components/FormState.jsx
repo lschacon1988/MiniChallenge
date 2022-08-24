@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import style from "./styleForm.module.css";
+import TableForm from "./TableForm";
 
 const FormState = () => {  
 /** declaro el estado input con las propiedades correspondiente  */
@@ -84,30 +85,7 @@ const FormState = () => {
         </Button>
       </Form>
       
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Nombre</th>
-            <th>Edad</th>
-            <th>Carrera</th>
-            <th>Hobbie</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* mapea y renderiza en una tabla la propiedad
-           show del stado input */}
-          {input.show?.map((e, i) => (
-            <tr key={i + 1}>
-              <td>{i + 1}</td>
-              <td>{e.nombre}</td>
-              <td>{e.edad}</td>
-              <td>{e.carrera}</td>
-              <td>{e.hobbie}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <TableForm show={input.show}/>
     </div>
   );
 };
